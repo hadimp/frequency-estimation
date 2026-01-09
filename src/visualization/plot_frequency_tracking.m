@@ -11,7 +11,7 @@ function fig_handle = plot_frequency_tracking(theta_history, cfg)
     %   fig_handle: Figure handle
 
     %% Convert theta history to frequency
-    freq_history = theta_history * cfg.signal.sampling_freq / (2 * pi);
+    freq_history = theta_to_freq(theta_history, cfg.signal.sampling_freq);
 
     %% Create iteration axis
     num_iterations = length(theta_history);
