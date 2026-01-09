@@ -26,12 +26,12 @@ function [fig_stages, fig_total, fig_db] = plot_frequency_response(theta, cfg)
     %% Figure 1: Individual stage responses
     % Use larger figure size for better vertical spacing
     fig_stages = figure('Name', 'Individual Filter Responses', 'NumberTitle', 'off', ...
-                        'Position', [100, 100, 1200, 1000]);
+                        'Position', [100, 100, 1200, 1100]);
 
     % Calculate spacing to prevent overlap
-    % Leave more space between subplots
+    % Leave more space between subplots and at top for title
     bottom_margin = 0.05;
-    top_margin = 0.02;
+    top_margin = 0.08;  % Increased to prevent title cropping at top
     vertical_spacing = 0.08;
     subplot_height = (1 - bottom_margin - top_margin - (total_stages - 1) * vertical_spacing) / total_stages;
 
