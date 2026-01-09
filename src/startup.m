@@ -35,6 +35,7 @@ fprintf('  Frequency Estimation Project Ready\n');
 fprintf('=======================================================\n');
 fprintf('Available commands:\n');
 fprintf('  run_frequency_estimation()     - Run with defaults\n');
-fprintf('  cfg = default_config()         - Get default config\n');
+fprintf('  cfg = config()                 - Get default config\n');
+fprintf('  cfg = config(''file.mat'')      - Load config from file\n');
 fprintf('  help <function_name>           - Get help for a function\n');
 fprintf('=======================================================\n\n');

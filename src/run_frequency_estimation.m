@@ -35,10 +35,10 @@ function results = run_frequency_estimation(config_input)
 
     %% LOAD CONFIGURATION
     if nargin < 1 || isempty(config_input)
-        cfg = default_config();
+        cfg = config();
         fprintf('Using default configuration.\n');
     elseif ischar(config_input)
-        cfg = load_config(config_input);
+        cfg = config(config_input);
         fprintf('Loaded configuration from: %s\n', config_input);
     elseif isstruct(config_input)
         cfg = config_input;
