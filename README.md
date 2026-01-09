@@ -2,7 +2,7 @@
 
 A MATLAB/Octave implementation of an adaptive IIR filter for frequency estimation and tracking using cascaded notch filters and the Least Mean Squares (LMS) algorithm.
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [Overview](#overview)
 - [Algorithm Description](#algorithm-description)
@@ -22,13 +22,13 @@ This project implements the algorithm from the paper **"Novel Adaptive IIR Filte
 
 ### Key Features
 
-- ✅ **Adaptive Frequency Tracking**: Automatically estimates and tracks fundamental frequency
-- ✅ **Harmonic Rejection**: Cascaded notch filters remove harmonic components
-- ✅ **LMS Optimization**: Gradient-based adaptive algorithm for convergence
-- ✅ **Comprehensive Visualization**: Multiple plots showing algorithm performance
-- ✅ **Modular Architecture**: Clean, well-documented, maintainable code
-- ✅ **MATLAB/Octave Compatible**: Works with both MATLAB and Octave
-- ✅ **Configurable**: Easy-to-use configuration system
+- **Adaptive Frequency Tracking**: Automatically estimates and tracks fundamental frequency
+- **Harmonic Rejection**: Cascaded notch filters remove harmonic components
+- **LMS Optimization**: Gradient-based adaptive algorithm for convergence
+- **Comprehensive Visualization**: Multiple plots showing algorithm performance
+- **Modular Architecture**: Clean, well-documented, maintainable code
+- **MATLAB/Octave Compatible**: Works with both MATLAB and Octave
+- **Configurable**: Easy-to-use configuration system
 
 ## Algorithm Description
 
