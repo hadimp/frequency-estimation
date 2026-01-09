@@ -54,11 +54,6 @@ The algorithm operates in four main phases:
 
 *Figure 4: Individual notch filter stage responses showing notch locations at harmonics*
 
-![Frequency Response](output/frequency_response_plot.png)
-
-*Figure 5: Frequency response showing individual notch filters (top) and overall comb filter response (bottom) with harmonic markers*
-
-
 ### Setup
 
 1. Clone the repository:
