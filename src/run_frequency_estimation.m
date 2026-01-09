@@ -18,20 +18,15 @@
 %   4. Visualize results
 %
 % Usage:
-%   >> run_frequency_estimation           % Use default configuration
-%   >> run_frequency_estimation(cfg)      % Use custom configuration
+%   >> startup                              % Run once per session to set up paths
+%   >> run_frequency_estimation             % Use default configuration
+%   >> run_frequency_estimation(cfg)        % Use custom configuration
+%
+% Note: Run 'startup' first to add required paths to MATLAB/Octave.
 %
 % =======================================================================
 
 function results = run_frequency_estimation(config_input)
-
-    %% SETUP PATHS
-    % Add source directories to MATLAB/Octave path
-    script_dir = fileparts(mfilename('fullpath'));
-    addpath(fullfile(script_dir, 'config'));
-    addpath(fullfile(script_dir, 'core'));
-    addpath(fullfile(script_dir, 'utils'));
-    addpath(fullfile(script_dir, 'visualization'));
 
     %% LOAD CONFIGURATION
     if nargin < 1 || isempty(config_input)
