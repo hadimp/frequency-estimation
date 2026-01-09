@@ -24,17 +24,32 @@ function [fig_stages, fig_total, fig_db] = plot_frequency_response(theta, cfg)
     omega_norm = omega / pi;
 
     %% Figure 1: Individual stage responses
-    fig_stages = figure('Name', 'Individual Filter Responses', 'NumberTitle', 'off');
+    % Use larger figure size for better vertical spacing
+    fig_stages = figure('Name', 'Individual Filter Responses', 'NumberTitle', 'off', ...
+                        'Position', [100, 100, 1200, 1000]);
+
+    % Calculate spacing to prevent overlap
+    % Leave more space between subplots
+    bottom_margin = 0.05;
+    top_margin = 0.02;
+    vertical_spacing = 0.08;
+    subplot_height = (1 - bottom_margin - top_margin - (total_stages - 1) * vertical_spacing) / total_stages;
 
     for stage = 1:total_stages
-        subplot(total_stages, 1, stage);
+        % Calculate position for each subplot with proper spacing
+        bottom_pos = bottom_margin + (total_stages - stage) * (subplot_height + vertical_spacing);
+        
+        subplot('Position', [0.1, bottom_pos, 0.85, subplot_height]);
         plot(omega_norm, abs(H_stages(stage, :)), 'b-', 'LineWidth', 1.5);
 
-        xlabel('\omega / \pi', 'FontSize', 10);
-        ylabel('|H(f)|', 'FontSize', 10);
-        title(sprintf('Stage %d: Notch at %d×f_1', stage, stage), 'FontSize', 12);
+        xlabel('\omega / \pi', 'FontSize', 9);
+        ylabel('|H(f)|', 'FontSize', 9);
+        title(sprintf('Stage %d: Notch at %d×f_1', stage, stage), 'FontSize', 10);
         ylim([0, 1.2]);
         grid on;
+        
+        % Set smaller font size for tick labels to prevent overlap
+        set(gca, 'FontSize', 8);
     end
 
     %% sgtitle not available in Octave - title set in figure name
