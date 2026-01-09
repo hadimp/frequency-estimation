@@ -1,0 +1,17 @@
+# Output files
+output/
+*.png
+!output/mse_landscape.png
+!output/frequency_response_plot.png
+!output/mse_analysis.png
+!output/filter_signals.png
+!output/stage_responses.png
+!output/convergence_demo.png
+
+# MATLAB/Octave workspace files
+octave-workspace
+*.asv
+
+# OS files
+.DS_Store
+Thumbs.db
