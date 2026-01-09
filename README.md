@@ -50,9 +50,9 @@ The algorithm operates in four main phases:
 - Iteratively minimizes the MSE cost function
 - Converges to the true fundamental frequency
 
-![Frequency Tracking](output/frequency_tracking.png)
+![Convergence Demonstration](output/convergence_demo.png)
 
-*Figure 2: LMS frequency tracking convergence showing estimated frequency vs. iteration*
+*Figure 2: LMS convergence showing frequency tracking (top) and error evolution (bottom)*
 
 ### Phase 3: Filter Output Analysis
 - Computes final filter bank output with converged frequency
@@ -75,10 +75,6 @@ The algorithm operates in four main phases:
 ## Mathematical Background
 
 ### Filter Bank Structure
-
-![Filter Bank Structure](output/filter_structure.png)
-
-*Figure 5: Cascaded notch filter bank structure with transfer functions*
 
 The algorithm uses a cascade of M second-order IIR notch filters. Each filter has the transfer function:
 
@@ -116,13 +112,13 @@ The gradient β_M(n) is computed recursively through the filter stages using the
 
 ![Frequency Response](output/frequency_response_plot.png)
 
-*Figure 6: Frequency response of individual notch filters (top) and overall system comb filter (bottom)*
+*Figure 5: Frequency response of individual notch filters (top) and overall system comb filter (bottom)*
 
 ### MSE Cost Function
 
 ![MSE Landscape](output/mse_landscape.png)
 
-*Figure 7: MSE cost function landscape showing the search space and global minimum*
+*Figure 6: MSE cost function landscape showing the search space and global minimum*
 
 The Mean Squared Error is defined as:
 
