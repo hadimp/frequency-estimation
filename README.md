@@ -6,6 +6,8 @@ A MATLAB/Octave implementation of an adaptive IIR filter for frequency estimatio
 
 This project implements the algorithm from the paper **"Novel Adaptive IIR Filter for Frequency Estimation and Tracking"** by Li Tan and Jean Jiang. The algorithm estimates and tracks the fundamental frequency of a harmonic signal using a cascaded notch filter bank and adaptive LMS (Least Mean Squares) optimization.
 
+![MSE Analysis](output/mse_analysis.png)
+
 ### Key Features
 
 - **Adaptive Frequency Tracking**: Automatically estimates and tracks fundamental frequency
@@ -21,8 +23,6 @@ The algorithm operates in four main phases:
 - Computes MSE (Mean Squared Error) for each candidate frequency
 - Identifies the capture range where both MSE and MSE₁ are below average
 - Selects initial estimate within the capture range
-
-![MSE Analysis](output/mse_analysis.png)
 
 *Figure 1: MSE cost function analysis showing MSE(θ) and MSE₁(θ) curves used for initial frequency estimation*
 
