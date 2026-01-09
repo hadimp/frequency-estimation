@@ -1,6 +1,11 @@
 # Output files
 output/
 *.png
+!output/algorithm_flowchart.png
+!output/filter_structure.png
+!output/mse_landscape.png
+!output/convergence_demo.png
+!output/frequency_response_plot.png
 
 # MATLAB/Octave workspace files
 octave-workspace
