@@ -73,7 +73,7 @@ function results = run_frequency_estimation(config_input)
 
     [initial_theta, mse_values, mse_first_values, theta_range] = find_initial_theta(cfg);
 
-    initial_freq = theta_to_freq(initial_theta, cfg.signal.sampling_freq);
+    initial_freq = initial_theta * cfg.signal.sampling_freq / (2 * pi);
     fprintf('  Initial estimate: %.2f Hz (theta = %.4f rad)\n', initial_freq, initial_theta);
 
     % Plot MSE analysis
@@ -84,7 +84,7 @@ function results = run_frequency_estimation(config_input)
 
     [theta_final, theta_history] = run_lms_algorithm(initial_theta, cfg);
 
-    final_freq = theta_to_freq(theta_final, cfg.signal.sampling_freq);
+    final_freq = theta_final * cfg.signal.sampling_freq / (2 * pi);
     fprintf('  Final estimate:   %.2f Hz (theta = %.4f rad)\n', final_freq, theta_final);
 
     % Calculate estimation error

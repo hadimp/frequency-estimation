@@ -65,7 +65,7 @@ function [fig_stages, fig_total, fig_db] = plot_frequency_response(theta, cfg)
     %% Figure 3: Overall response (dB scale)
     fig_db = figure('Name', 'Overall System Response (dB)', 'NumberTitle', 'off');
 
-    H_db = mag_to_db(H_total);
+    H_db = 20 * log10(abs(H_total));
     plot(freq_axis, H_db, 'b-', 'LineWidth', 1.5);
 
     xlabel('Frequency (Hz)', 'FontSize', 12);

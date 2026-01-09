@@ -28,7 +28,11 @@ function y = compute_filter_output(theta, cfg)
 
     %% Add noise if requested
     if add_noise
-        input_signal = add_awgn(input_signal, snr_db);
+        % Add AWGN: σ = √(P_signal / 10^(SNR_dB/10))
+        signal_power = mean(input_signal.^2);
+        snr_linear = 10^(snr_db / 10);
+        noise_std = sqrt(signal_power / snr_linear);
+        input_signal = input_signal + noise_std * randn(size(input_signal));
     end
 
     %% Initialize output matrix

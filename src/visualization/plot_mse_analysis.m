@@ -13,7 +13,7 @@ function fig_handle = plot_mse_analysis(theta_range, mse_values, mse_first_value
     %   fig_handle: Figure handle
 
     %% Convert theta to frequency for x-axis
-    freq_axis = theta_to_freq(theta_range, cfg.signal.sampling_freq);
+    freq_axis = theta_range * cfg.signal.sampling_freq / (2 * pi);
 
     %% Calculate running average
     avg_mse = mean(mse_values);

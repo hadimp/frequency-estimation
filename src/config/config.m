@@ -64,7 +64,7 @@ function cfg = default_config()
     cfg.output.save_figures = true;         % Save figures to disk
     cfg.output.figure_format = 'png';       % Output format: 'png', 'eps', 'pdf'
 
-    %% Create output directory if it doesn't exist
+    %% Create output directory if it does not exist
     if ~exist(cfg.output.directory, 'dir')
         mkdir(cfg.output.directory);
     end
