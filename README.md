@@ -32,10 +32,6 @@ This project implements the algorithm from the paper **"Novel Adaptive IIR Filte
 
 ## Algorithm Description
 
-![Algorithm Flowchart](output/algorithm_flowchart.png)
-
-*Figure 1: Algorithm flowchart showing the four-phase process and data flow*
-
 The algorithm operates in four main phases:
 
 ### Phase 1: Initial Frequency Estimation
@@ -44,25 +40,37 @@ The algorithm operates in four main phases:
 - Identifies the capture range where both MSE and MSE₁ are below average
 - Selects initial estimate within the capture range
 
+![MSE Analysis](output/mse_analysis.png)
+
+*Figure 1: MSE cost function analysis showing MSE(θ) and MSE₁(θ) curves used for initial frequency estimation*
+
 ### Phase 2: LMS Frequency Tracking
 - Applies LMS algorithm to refine the frequency estimate
 - Update rule: **θ(n+1) = θ(n) - 2μ·y_M(n)·β_M(n)**
 - Iteratively minimizes the MSE cost function
 - Converges to the true fundamental frequency
 
-![Convergence Demonstration](output/convergence_demo.png)
+![Frequency Tracking](output/frequency_tracking.png)
 
-*Figure 2: LMS convergence showing frequency tracking (top) and error evolution (bottom)*
+*Figure 2: LMS frequency tracking convergence showing estimated frequency vs. iteration*
 
 ### Phase 3: Filter Output Analysis
 - Computes final filter bank output with converged frequency
 - Visualizes signal progression through each filter stage
 - Shows how harmonics are progressively removed
 
+![Filter Signals](output/filter_signals.png)
+
+*Figure 3: Signal progression through cascaded filter bank showing harmonic removal*
+
 ### Phase 4: Frequency Response Analysis
 - Computes and visualizes frequency response of the filter bank
 - Shows individual notch filter responses
 - Displays overall system response (comb filter)
+
+![Stage Responses](output/stage_responses.png)
+
+*Figure 4: Individual notch filter stage responses showing notch locations at harmonics*
 
 ## Mathematical Background
 
@@ -70,7 +78,7 @@ The algorithm operates in four main phases:
 
 ![Filter Bank Structure](output/filter_structure.png)
 
-*Figure 3: Cascaded notch filter bank structure with transfer functions*
+*Figure 5: Cascaded notch filter bank structure with transfer functions*
 
 The algorithm uses a cascade of M second-order IIR notch filters. Each filter has the transfer function:
 
@@ -108,13 +116,13 @@ The gradient β_M(n) is computed recursively through the filter stages using the
 
 ![Frequency Response](output/frequency_response_plot.png)
 
-*Figure 4: Frequency response of individual notch filters (top) and overall system comb filter (bottom)*
+*Figure 6: Frequency response of individual notch filters (top) and overall system comb filter (bottom)*
 
 ### MSE Cost Function
 
 ![MSE Landscape](output/mse_landscape.png)
 
-*Figure 5: MSE cost function landscape showing the search space and global minimum*
+*Figure 7: MSE cost function landscape showing the search space and global minimum*
 
 The Mean Squared Error is defined as:
 
