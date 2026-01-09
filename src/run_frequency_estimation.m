@@ -128,6 +128,12 @@ function results = run_frequency_estimation(config_input)
     fprintf('  Estimation error:    %.4f%%\n', error_percent);
     fprintf('=======================================================\n');
 
+    %% SAVE RESULTS TO FILE
+    if cfg.output.save_results
+        fprintf('\nSaving results to file...\n');
+        save_results(results, cfg);
+    end
+
     if cfg.output.save_figures
         fprintf('\nFigures saved to: %s\n', cfg.output.directory);
     end

@@ -62,6 +62,7 @@ function cfg = default_config()
     cfg.output.directory = fullfile(fileparts(mfilename('fullpath')), ...
                                     '..', '..', 'output');
     cfg.output.save_figures = true;         % Save figures to disk
+    cfg.output.save_results = true;         % Save results to file
     cfg.output.figure_format = 'png';       % Output format: 'png', 'eps', 'pdf'
 
     %% Create output directory if it does not exist
