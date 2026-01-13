@@ -1,0 +1,45 @@
+=======================================================
+  FREQUENCY ESTIMATION RESULTS
+=======================================================
+Generated: 2026-01-13 18:15:21.662664
+
+CONFIGURATION:
+  Signal Parameters:
+    Fundamental frequency: 1000 Hz
+    Sampling frequency:    8000 Hz
+    Number of samples:     400
+    Add noise:             False
+  Filter Parameters:
+    Number of subfilters:  3
+    Pole radius:           0.9500
+  LMS Parameters:
+    Step size (μ):         0.000100
+    Theta search points:   1400
+
+RESULTS:
+  True frequency:          1000 Hz
+  Initial estimate:        971.1699 Hz (θ = 0.762755 rad)
+  Final estimate:          1000.0000 Hz (θ = 0.785398 rad)
+  Estimation error:        0.0000 Hz (0.0000%)
+
+MSE STATISTICS:
+  Minimum MSE:             2.133113e-02
+  Mean MSE:                6.848420e-01
+  Maximum MSE:             8.732995e-01
+  Minimum MSE₁:            1.848556e-01
+  Mean MSE₁:               6.458375e-01
+  Maximum MSE₁:            7.220012e-01
+
+CONVERGENCE STATISTICS:
+  Initial frequency:       971.1699 Hz
+  Final frequency:         1000.0000 Hz
+  Frequency change:        28.8301 Hz
+  Convergence iterations:  400
+
+OUTPUT FILES:
+  Results (NPZ):           /Users/hadim/Cursor/frequency-estimation/output/frequency_estimation_20260113_181521.npz
+  Figures directory:       /Users/hadim/Cursor/frequency-estimation/output
+
+=======================================================
+End of Report
+=======================================================

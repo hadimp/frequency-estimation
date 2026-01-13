@@ -1,0 +1,70 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "frequency-estimation"
+version = "1.0.0"
+description = "Adaptive Frequency Estimation using LMS Algorithm"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Hadi Mohammadpour", email = "hadi@example.com"}
+]
+requires-python = ">=3.10"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Signal Processing",
+]
+keywords = ["signal processing", "frequency estimation", "LMS", "adaptive filter"]
+
+dependencies = [
+    "numpy>=1.20.0",
+    "scipy>=1.7.0",
+    "matplotlib>=3.5.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "ruff>=0.1.0",
+    "mypy>=1.0.0",
+]
+
+[project.scripts]
+frequency-estimation = "frequency_estimation.run:main"
+
+[project.urls]
+Homepage = "https://github.com/hadimp/FrequencyEstimation"
+Repository = "https://github.com/hadimp/FrequencyEstimation"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.black]
+line-length = 100
+target-version = ["py310", "py311", "py312"]
+
+[tool.ruff]
+line-length = 100
+select = ["E", "F", "W", "I", "N", "D", "UP"]
+ignore = ["D100", "D104"]
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v --cov=frequency_estimation --cov-report=term-missing"

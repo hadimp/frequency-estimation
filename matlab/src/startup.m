@@ -22,7 +22,7 @@ addpath(fullfile(script_dir, 'utils'));
 addpath(fullfile(script_dir, 'visualization'));
 
 %% Create output directory if needed
-output_dir = fullfile(script_dir, '..', 'output');
+output_dir = fullfile(script_dir, '..', '..', 'output');
 if ~exist(output_dir, 'dir')
     mkdir(output_dir);
     fprintf('Created output directory: %s\n', output_dir);
