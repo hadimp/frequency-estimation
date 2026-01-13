@@ -44,5 +44,5 @@ Thumbs.db
 # Project specific
 *.npz
 *.mat
-!output/*.mat
-!output/*.npz
+output/
+tests/
