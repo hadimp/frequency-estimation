@@ -6,7 +6,7 @@ A dual-language implementation (MATLAB/Octave and Python) of an adaptive IIR fil
 
 This project implements the algorithm from the paper **"Novel Adaptive IIR Filter for Frequency Estimation and Tracking"** by Li Tan and Jean Jiang (IEEE Signal Processing Magazine, 2009). The algorithm estimates and tracks the fundamental frequency of a harmonic signal using a cascaded notch filter bank and adaptive LMS (Least Mean Squares) optimization.
 
-![MSE Analysis](output/mse_analysis.png)
+![MSE Analysis](docs/images/mse_analysis.png)
 
 ### Key Features
 
@@ -60,21 +60,21 @@ The algorithm operates in four main phases:
 - Iteratively minimizes the MSE cost function
 - Converges to the true fundamental frequency
 
-![Frequency Tracking](output/frequency_tracking.png)
+![Frequency Tracking](docs/images/frequency_tracking.png)
 
 ### Phase 3: Filter Output Analysis
 - Computes final filter bank output with converged frequency
 - Visualizes signal progression through each filter stage
 - Shows how harmonics are progressively removed
 
-![Filter Signals](output/filter_signals.png)
+![Filter Signals](docs/images/filter_signals.png)
 
 ### Phase 4: Frequency Response Analysis
 - Computes and visualizes frequency response of the filter bank
 - Shows individual notch filter responses
 - Displays overall system response (comb filter)
 
-![Frequency Response](output/frequency_response_plot.png)
+![Frequency Response](docs/images/frequency_response_plot.png)
 
 ## Quick Start
 
@@ -168,11 +168,7 @@ The algorithm generates several output files in the `output/` directory:
 - Python: `frequency_estimation_YYYYMMDD_HHMMSS.npz`
 - Summary: `frequency_estimation_YYYYMMDD_HHMMSS_summary.txt`
 
-## Requirements
 
-### MATLAB/Octave
-- MATLAB R2019b+ or GNU Octave 6.0+
-- Signal Processing Toolbox (optional, for `freqz`)
 
 ### Python
 - Python 3.10+
@@ -185,12 +181,3 @@ The algorithm generates several output files in the `output/` directory:
 **Primary Reference:**
 - L. Tan and J. Jiang, "Novel adaptive IIR filter for frequency estimation and tracking [DSP Tips&Tricks]," in *IEEE Signal Processing Magazine*, vol. 26, no. 6, pp. 186-189, November 2009. [DOI: 10.1109/MSP.2009.934189](https://doi.org/10.1109/MSP.2009.934189)
 
-## License
-
-MIT License
-
-## Author
-
-Hadi Mohammadpour
-- Original: ENGI 9821 - DSP, Winter 2021, Memorial University of Newfoundland
-- Refactored: 2024 - Modular, documented, and cross-platform
