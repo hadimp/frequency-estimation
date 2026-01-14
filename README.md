@@ -92,7 +92,7 @@ results = run_frequency_estimation();
 
 % Or with custom configuration
 cfg = config();
-cfg.signal.fundamental_freq = 500;
+cfg.signal.fundamental_freq = 1000;
 results = run_frequency_estimation(cfg);
 ```
 
@@ -107,7 +107,7 @@ pip install -e .
 frequency-estimation
 
 # Or run with custom frequency
-frequency-estimation --freq 500
+frequency-estimation --freq 1000
 ```
 
 ```python
@@ -119,7 +119,7 @@ results = run_frequency_estimation()
 
 # Run with custom configuration
 cfg = Config()
-cfg.signal.fundamental_freq = 500
+cfg.signal.fundamental_freq = 1000
 cfg.signal.add_noise = True
 cfg.signal.snr_db = 20
 results = run_frequency_estimation(cfg)
