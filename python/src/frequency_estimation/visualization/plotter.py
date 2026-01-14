@@ -1,10 +1,3 @@
-"""
-Results visualization class.
-
-This module provides the ResultsPlotter class for visualizing
-frequency estimation results.
-"""
-
 import numpy as np
 from numpy.typing import NDArray
 import matplotlib.pyplot as plt
@@ -14,34 +7,10 @@ from typing import Optional
 
 from ..estimator import EstimationResult, theta_to_freq
 from ..filters import CascadedFilterBank
-
-
-def mag_to_db(magnitude: NDArray, floor_db: float = -120.0) -> NDArray:
-    """Convert magnitude to decibels with floor."""
-    eps = 10 ** (floor_db / 20)
-    return 20 * np.log10(np.maximum(np.abs(magnitude), eps))
+from ..utils import mag_to_db
 
 
 class ResultsPlotter:
-    """
-    Visualization class for frequency estimation results.
-    
-    Provides methods to create various plots for analyzing
-    the frequency estimation algorithm's performance.
-    
-    Attributes:
-        result: EstimationResult from FrequencyEstimator
-        output_dir: Directory for saving figures
-        figure_format: Output format ('png', 'pdf', 'eps')
-        save_figures: Whether to save figures to disk
-        
-    Example:
-        >>> estimator = FrequencyEstimator()
-        >>> result = estimator.estimate()
-        >>> plotter = ResultsPlotter(result)
-        >>> plotter.plot_all()
-        >>> plt.show()
-    """
     
     def __init__(
         self, 
@@ -50,35 +19,12 @@ class ResultsPlotter:
         figure_format: str = "png",
         save_figures: bool = True
     ):
-        """
-        Initialize plotter with estimation results.
-        
-        Args:
-            result: EstimationResult from FrequencyEstimator
-            output_dir: Directory for saving figures (uses config default if None)
-            figure_format: Output format ('png', 'pdf', 'eps')
-            save_figures: Whether to save figures to disk
-        """
         self.result = result
         self.output_dir = output_dir or result.config.output.directory
         self.figure_format = figure_format
         self.save_figures = save_figures
     
-    def _save_figure(self, fig: Figure, name: str) -> None:
-        """Save figure to disk if enabled."""
-        if self.save_figures:
-            path = Path(self.output_dir) / f"{name}.{self.figure_format}"
-            fig.savefig(path, dpi=150, bbox_inches='tight')
-    
     def plot_mse_analysis(self) -> Figure:
-        """
-        Plot MSE analysis over frequency range.
-        
-        Shows MSE(θ), MSE₁(θ), and average MSE curves.
-        
-        Returns:
-            Matplotlib figure
-        """
         freq_axis = theta_to_freq(self.result.theta_range, self.result.sampling_freq)
         avg_mse = np.mean(self.result.mse_values)
         
@@ -100,14 +46,6 @@ class ResultsPlotter:
         return fig
     
     def plot_frequency_tracking(self) -> Figure:
-        """
-        Plot LMS frequency tracking convergence.
-        
-        Shows estimated frequency vs iteration with true frequency reference.
-        
-        Returns:
-            Matplotlib figure
-        """
         num_iterations = len(self.result.theta_history)
         iteration_axis = np.arange(1, num_iterations + 1)
         
@@ -134,14 +72,6 @@ class ResultsPlotter:
         return fig
     
     def plot_filter_signals(self) -> Figure:
-        """
-        Plot input signal and filter stage outputs.
-        
-        Multi-panel plot showing signal progression through filter bank.
-        
-        Returns:
-            Matplotlib figure
-        """
         y = self.result.filter_output
         num_samples = y.shape[1]
         total_stages = y.shape[0]
@@ -168,15 +98,6 @@ class ResultsPlotter:
         return fig
     
     def plot_frequency_response(self) -> tuple[Figure, Figure, Figure, Figure]:
-        """
-        Plot frequency response of filter bank.
-        
-        Creates four figures: individual stages, overall (linear),
-        overall (dB), and combined plot.
-        
-        Returns:
-            Tuple of four matplotlib figures
-        """
         cfg = self.result.config
         theta = self.result.final_theta
         sampling_freq = cfg.signal.sampling_freq
@@ -285,12 +206,6 @@ class ResultsPlotter:
         return fig_stages, fig_total, fig_db, fig_combined
     
     def plot_all(self) -> dict[str, Figure]:
-        """
-        Generate all plots.
-        
-        Returns:
-            Dictionary mapping plot names to figures
-        """
         figures = {}
         
         figures['mse_analysis'] = self.plot_mse_analysis()
@@ -304,6 +219,11 @@ class ResultsPlotter:
         figures['frequency_response_plot'] = fig_combined
         
         return figures
+    
+    def _save_figure(self, fig: Figure, name: str) -> None:
+        if self.save_figures:
+            path = Path(self.output_dir) / f"{name}.{self.figure_format}"
+            fig.savefig(path, dpi=150, bbox_inches='tight')
     
     def __repr__(self) -> str:
         return f"ResultsPlotter(result={self.result})"
