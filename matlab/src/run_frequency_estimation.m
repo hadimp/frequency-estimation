@@ -1,31 +1,3 @@
-%% ADAPTIVE FREQUENCY ESTIMATION USING LMS ALGORITHM
-% =======================================================================
-% Author: Hadi Mohammadpour
-% Original: ENGI 9821 - DSP, Winter 2021, Memorial University of Newfoundland
-% Refactored: 2024 - Modular, documented, and Octave-compatible
-%
-% Description:
-%   This script implements the LMS algorithm for frequency estimation and
-%   tracking using a cascaded notch filter bank. Based on the paper:
-%
-%   Li Tan and Jean Jiang, "Novel Adaptive IIR Filter for Frequency
-%   Estimation and Tracking", IEEE Signal Processing Letters, 2009.
-%
-% Algorithm Overview:
-%   1. Generate a test signal with harmonics
-%   2. Search for initial frequency estimate (MSE minimization)
-%   3. Apply LMS algorithm to refine the estimate
-%   4. Visualize results
-%
-% Usage:
-%   >> startup                              % Run once per session to set up paths
-%   >> run_frequency_estimation             % Use default configuration
-%   >> run_frequency_estimation(cfg)        % Use custom configuration
-%
-% Note: Run 'startup' first to add required paths to MATLAB/Octave.
-%
-% =======================================================================
-
 function results = run_frequency_estimation(config_input)
 
     %% LOAD CONFIGURATION

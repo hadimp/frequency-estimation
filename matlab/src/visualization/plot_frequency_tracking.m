@@ -1,15 +1,4 @@
 function fig_handle = plot_frequency_tracking(theta_history, cfg)
-    % PLOT_FREQUENCY_TRACKING Plot LMS frequency tracking convergence.
-    %
-    % Plots estimated frequency vs. iteration showing convergence trajectory.
-    %
-    % Args:
-    %   theta_history: History of theta estimates (N x 1)
-    %   cfg: Configuration structure
-    %
-    % Returns:
-    %   fig_handle: Figure handle
-
     %% Convert theta history to frequency
     freq_history = theta_to_freq(theta_history, cfg.signal.sampling_freq);
 

@@ -1,17 +1,4 @@
 function [theta_final, theta_history] = run_lms_algorithm(initial_theta, cfg)
-    % RUN_LMS_ALGORITHM Execute LMS algorithm for frequency estimation.
-    %
-    % LMS update: θ(n+1) = θ(n) - 2μ·y_M(n)·β_M(n)
-    % Minimizes MSE cost function J(θ) = E[y_M²(n)].
-    %
-    % Args:
-    %   initial_theta: Initial frequency estimate (radians)
-    %   cfg: Configuration structure
-    %
-    % Returns:
-    %   theta_final: Final converged estimate
-    %   theta_history: History of θ estimates (N x 1)
-
     %% Extract parameters
     step_size = cfg.lms.step_size;
     num_samples = cfg.signal.num_samples;

@@ -1,18 +1,4 @@
 function [initial_theta, mse_values, mse_first_values, theta_range] = find_initial_theta(cfg)
-    % FIND_INITIAL_THETA Find initial frequency estimate via MSE minimization.
-    %
-    % Searches θ ∈ [0, π/M] to find initial estimate within capture range.
-    % Identifies capture range where MSE and MSE₁ are below average.
-    %
-    % Args:
-    %   cfg: Configuration structure
-    %
-    % Returns:
-    %   initial_theta: Initial frequency estimate (radians)
-    %   mse_values: MSE values over theta range
-    %   mse_first_values: First-stage MSE values
-    %   theta_range: Theta values searched
-
     %% Extract parameters
     num_points = cfg.lms.num_theta_points;
     num_subfilters = cfg.filter.num_subfilters;

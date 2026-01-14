@@ -1,15 +1,4 @@
 function fig_handle = plot_filter_signals(y, cfg)
-    % PLOT_FILTER_SIGNALS Plot input signal and filter stage outputs.
-    %
-    % Multi-panel plot: input signal x(n) and outputs y_m(n) from each stage.
-    %
-    % Args:
-    %   y: Filter outputs (M+1 x N+1)
-    %   cfg: Configuration structure
-    %
-    % Returns:
-    %   fig_handle: Figure handle
-
     %% Extract parameters
     num_samples = cfg.signal.num_samples + 1;
     num_subfilters = cfg.filter.num_subfilters;

@@ -1,17 +1,4 @@
 function y = compute_filter_output(theta, cfg)
-    % COMPUTE_FILTER_OUTPUT Compute cascaded notch filter bank output.
-    %
-    % Processes signal through M cascaded IIR notch filters:
-    % H_m(z) = (1 - 2cos(mθ)z⁻¹ + z⁻²) / (1 - 2r·cos(mθ)z⁻¹ + r²z⁻²)
-    % Each filter rejects the m-th harmonic. Output y_M(n) should be minimized.
-    %
-    % Args:
-    %   theta: Estimated frequency θ = 2πf₁/fs (radians)
-    %   cfg: Configuration structure
-    %
-    % Returns:
-    %   y: Filter outputs (M+1 x N+1), y(1,:)=input, y(m,:)=stage m-1 output
-
     %% Extract parameters from config
     num_subfilters = cfg.filter.num_subfilters;
     pole_radius = cfg.filter.pole_radius;

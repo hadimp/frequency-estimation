@@ -1,14 +1,3 @@
-%% STARTUP SCRIPT FOR FREQUENCY ESTIMATION PROJECT
-% =======================================================================
-% This script sets up the MATLAB/Octave path for the frequency estimation
-% project. Run this script once when starting a new session.
-%
-% Usage:
-%   >> startup
-%   >> run_frequency_estimation()
-%
-% =======================================================================
-
 fprintf('Setting up Frequency Estimation project paths...\n');
 
 %% Get the directory containing this script

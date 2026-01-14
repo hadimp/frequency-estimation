@@ -1,18 +1,4 @@
 function [fig_stages, fig_total, fig_db, fig_combined] = plot_frequency_response(theta, cfg)
-    % PLOT_FREQUENCY_RESPONSE Plot frequency response of filter bank.
-    %
-    % Creates four figures: individual stage responses, overall (linear), overall (dB), combined.
-    %
-    % Args:
-    %   theta: Converged frequency estimate (radians)
-    %   cfg: Configuration structure
-    %
-    % Returns:
-    %   fig_stages: Individual stage responses figure
-    %   fig_total: Overall response (linear) figure
-    %   fig_db: Overall response (dB) figure
-    %   fig_combined: Combined frequency response plot (for README)
-
     %% Compute frequency response
     [H_total, H_stages, freq_axis] = compute_frequency_response(theta, cfg);
 
