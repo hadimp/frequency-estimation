@@ -1,17 +1,4 @@
 function beta = compute_gradient(theta, y, cfg)
-    % COMPUTE_GRADIENT Compute gradient β_M(n) = ∂y_M(n)/∂θ for LMS update.
-    %
-    % Computes gradient recursively through filter stages. Used in LMS:
-    % θ(n+1) = θ(n) - 2μ·y_M(n)·β_M(n)
-    %
-    % Args:
-    %   theta: Current frequency estimate (radians)
-    %   y: Filter outputs from compute_filter_output() (M+1 x N+1)
-    %   cfg: Configuration structure
-    %
-    % Returns:
-    %   beta: Gradient values β_M(n) (1 x N)
-
     %% Extract parameters
     num_subfilters = cfg.filter.num_subfilters;
     pole_radius = cfg.filter.pole_radius;

@@ -1,16 +1,4 @@
 function noisy_signal = add_awgn(signal, snr_db)
-    % ADD_AWGN Add Additive White Gaussian Noise to a signal.
-    %
-    % Uses MATLAB's awgn from Communications Toolbox if available,
-    % otherwise falls back to manual implementation.
-    %
-    % Args:
-    %   signal: Input signal
-    %   snr_db: Desired SNR in decibels
-    %
-    % Returns:
-    %   noisy_signal: Signal with added noise
-
     % Try to use MATLAB's awgn from Communications Toolbox
     if exist('awgn', 'builtin') || exist('awgn', 'file')
         noisy_signal = awgn(signal, snr_db);

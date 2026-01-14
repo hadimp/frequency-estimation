@@ -1,17 +1,4 @@
 function fig_handle = plot_mse_analysis(theta_range, mse_values, mse_first_values, cfg)
-    % PLOT_MSE_ANALYSIS Plot MSE analysis over frequency range.
-    %
-    % Plots MSE(θ), MSE₁(θ), and average MSE to visualize cost function landscape.
-    %
-    % Args:
-    %   theta_range: Theta values (radians)
-    %   mse_values: Total MSE values
-    %   mse_first_values: First-stage MSE values
-    %   cfg: Configuration structure
-    %
-    % Returns:
-    %   fig_handle: Figure handle
-
     %% Convert theta to frequency for x-axis
     freq_axis = theta_to_freq(theta_range, cfg.signal.sampling_freq);
 

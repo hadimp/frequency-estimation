@@ -1,17 +1,4 @@
 function [H_total, H_stages, freq_axis] = compute_frequency_response(theta, cfg)
-    % COMPUTE_FREQUENCY_RESPONSE Compute frequency response H(ω) of filter bank.
-    %
-    % H_total = ∏_{m=1}^{M} H_m(e^{jω}) creates comb filter with notches at harmonics.
-    %
-    % Args:
-    %   theta: Frequency parameter θ = 2πf₁/fs (radians)
-    %   cfg: Configuration structure
-    %
-    % Returns:
-    %   H_total: Total cascade response (normalized)
-    %   H_stages: Individual stage responses (M+1 x num_freq_points)
-    %   freq_axis: Frequency axis in Hz
-
     %% Extract parameters
     num_subfilters = cfg.filter.num_subfilters;
     pole_radius = cfg.filter.pole_radius;

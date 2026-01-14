@@ -1,14 +1,4 @@
 function save_results(results, cfg)
-    % SAVE_RESULTS Save frequency estimation results to file.
-    %
-    % Saves results in multiple formats:
-    %   - .mat file: Complete results structure (all data)
-    %   - .txt file: Human-readable summary report
-    %
-    % Args:
-    %   results: Results structure from run_frequency_estimation()
-    %   cfg: Configuration structure
-
     if ~cfg.output.save_results
         return;
     end

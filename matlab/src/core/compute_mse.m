@@ -1,16 +1,4 @@
 function [mse_total, mse_first] = compute_mse(y, cfg)
-    % COMPUTE_MSE Compute Mean Squared Error of filter bank outputs.
-    %
-    % MSE = (1/N) Σ y_M(n)². When θ matches true frequency, MSE → 0.
-    %
-    % Args:
-    %   y: Filter outputs (M+1 x N+1)
-    %   cfg: Configuration structure
-    %
-    % Returns:
-    %   mse_total: MSE of final filter stage
-    %   mse_first: MSE of first filter stage
-
     %% Extract parameters
     num_samples = cfg.signal.num_samples + 1;
     total_stages = cfg.filter.num_subfilters + 1;
